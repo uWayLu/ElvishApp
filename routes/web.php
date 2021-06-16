@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\NotifyBotController;
+use App\Http\Controllers\UserDiscordSettingsController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -29,8 +30,10 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-
 Route::get('/notifybot', [NotifyBotController::class, 'show'])
     ->name('notifybot');
+
+Route::get('/discordbot', [UserDiscordSettingsController::class, 'show'])
+    ->name('discordbot');
 
 require __DIR__ . '/auth.php';

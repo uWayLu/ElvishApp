@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Models\ScheduleMessage;
+use App\Notifications\IllusionConnectDailySupportNotification;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Notification;
 
 class Kernel extends ConsoleKernel
 {
@@ -25,6 +28,17 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->call(function () {
+            Notification::send([new ScheduleMessage(),], new IllusionConnectDailySupportNotification);
+        })->dailyAt('11:00');
+
+        $schedule->call(function () {
+            Notification::send([new ScheduleMessage(),], new IllusionConnectDailySupportNotification);
+        })->dailyAt('17:00');
+
+        $schedule->call(function () {
+            Notification::send([new ScheduleMessage(),], new IllusionConnectDailySupportNotification);
+        })->dailyAt('21:00');
     }
 
     /**
@@ -34,7 +48,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

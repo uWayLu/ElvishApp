@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Taipei',
 
     /*
     |--------------------------------------------------------------------------
@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Onecentlin\Adminer\ServiceProvider::class,
+        NotificationChannels\Discord\DiscordServiceProvider::class,
 
         /*
          * Application Service Providers...

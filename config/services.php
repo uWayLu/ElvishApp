@@ -30,4 +30,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'discord' => [
+        'token' => env('DISCORD_BOT_API_TOKEN'),
+        'channel' => [
+            'test' => env('DISCORD_TEST_CHANNEL_ID'),
+            'game' => env('DISCORD_GAME_CHANNEL_ID'),
+        ],
+    ],
+
 ];
