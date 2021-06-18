@@ -18,4 +18,9 @@ class NotifyBotController extends Controller
     {
         return Inertia::render('NotifyBot');
     }
+
+    public function create(Request $request)
+    {
+        dd($request->user());
+    }
 }

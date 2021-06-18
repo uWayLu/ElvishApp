@@ -33,6 +33,14 @@ Route::get('/dashboard', function () {
 Route::get('/notifybot', [NotifyBotController::class, 'show'])
     ->name('notifybot');
 
+Route::get('/schedule-messages', [NotifyBotController::class, 'list'])
+    ->name('schedule-messages-list');
+
+Route::prefix('schedule-message')->middleware(['auth', 'verified'])->group(function () {
+    Route::get('/create', [NotifyBotController::class, 'create']);
+});
+
+
 Route::get('/discordbot', [UserDiscordSettingsController::class, 'show'])
     ->name('discordbot');
 
