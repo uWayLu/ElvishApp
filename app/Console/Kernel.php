@@ -30,11 +30,11 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')->hourly();
         $schedule->call(function () {
             Notification::send([new ScheduleMessage(),], new IllusionConnectDailySupportNotification);
-        })->dailyAt('11:00');
+        })->dailyAt('12:30');
 
         $schedule->call(function () {
             Notification::send([new ScheduleMessage(),], new IllusionConnectDailySupportNotification);
-        })->dailyAt('17:00');
+        })->dailyAt('18:00');
 
         $schedule->call(function () {
             Notification::send([new ScheduleMessage(),], new IllusionConnectDailySupportNotification);
